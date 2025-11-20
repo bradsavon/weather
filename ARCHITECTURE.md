@@ -118,7 +118,7 @@ graph LR
         B --> C[API Route]
         C --> D[Auth Library]
         D --> E[Prisma Client]
-        E --> F[SQLite DB]
+        E --> F[PostgreSQL DB]
         F --> E
         E --> D
         D --> C
@@ -167,7 +167,7 @@ graph LR
 - **Password Hashing**: bcryptjs
 
 ### Database
-- **Type**: SQLite
+- **Type**: PostgreSQL (Vercel Postgres recommended for production)
 - **Schema**: User, Location tables with relations
 
 ### External APIs

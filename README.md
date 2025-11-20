@@ -2,8 +2,6 @@
 
 A full-stack weather application built with Next.js 16, TypeScript, Prisma, and Tailwind CSS.
 
-![Weather App Screenshot](https://placehold.co/600x400?text=Weather+App+Preview)
-
 ## Features
 
 - **Authentication**: Secure user registration and login (Email/Password) with NextAuth.js.
@@ -83,6 +81,28 @@ A full-stack weather application built with Next.js 16, TypeScript, Prisma, and 
 2. **Dashboard**: View weather for your current location.
 3. **Add Locations**: Click the location dropdown -> "Add Location" to search and save cities.
 4. **Settings**: Click the settings icon to toggle themes, units, and widgets.
+
+## Deployment
+
+The easiest way to deploy this app is using [Vercel](https://vercel.com).
+
+1. **Push to GitHub**: Ensure your code is pushed to a GitHub repository.
+2. **Import to Vercel**:
+   - Go to Vercel Dashboard -> "Add New..." -> "Project".
+   - Import your GitHub repository.
+3. **Configure Database (Vercel Postgres)**:
+   - In the Vercel Project Settings, go to "Storage".
+   - Click "Connect Store" -> "Create New" -> "Postgres".
+   - Accept the terms and create the database.
+   - Vercel will automatically add the necessary environment variables (`POSTGRES_URL`, etc.) to your project.
+   - **Important**: You need to update your `DATABASE_URL` environment variable in Vercel to use the `POSTGRES_PRISMA_URL` value (or just rename the auto-generated one).
+4. **Environment Variables**:
+   - Go to "Settings" -> "Environment Variables".
+   - Add `NEXTAUTH_SECRET` (generate a random string).
+   - Add `NEXTAUTH_URL` (your Vercel deployment URL, e.g., `https://your-app.vercel.app`).
+5. **Deploy**:
+   - Vercel will automatically build and deploy your app.
+   - During the build, the `postinstall` script (if configured) or manual command `npx prisma db push` will set up your database schema.
 
 ## License
 
